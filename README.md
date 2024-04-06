@@ -22,3 +22,7 @@ WHEN all prompts are answered
 THEN a password is generated that matches the selected criteria
 WHEN the password is generated
 THEN the password is either displayed in an alert or written to the page
+
+Notes:
+Student received support from a tutor to complete this assignment specifically lines 15-17 and lines 23-26 in the script.js file 
+Student used expert learning assistant to complete the rest of the assigment, speicifally lines 35-59 in the script.js file

@@ -26,12 +26,46 @@ var numericConfirm = confirm("Do you want to include numeric characters?")
 var specialCharactersConfirm = confirm("Do you want to include special characters?")
 
 // WHEN I answer each prompt
-// THEN my input should be validated and at least one character type should be selected
-
+// THEN my input should be validated and at least one character type should be selected 
 // WHEN all prompts are answered
 // THEN a password is generated that matches the selected criteria
 // WHEN the password is generated
 // THEN the password is either displayed in an alert or written to the page
+// Validate at least one character type is selected
+if (!lowercaseConfirm && !uppercaseConfirm && !numericConfirm && !specialCharactersConfirm) {
+  alert('Please select at least one character type.');
+  return;
+}
+
+// Define character sets based on selected criteria
+const lowercaseChars = 'abcdefghijklmnopqrstuvwxyz';
+const uppercaseChars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+const numericChars = '0123456789';
+const specialChars = '!@#$%^&*()_+-=[]{}|;:,.<>?';
+
+let selectedChars = '';
+
+if (lowercaseConfirm) {
+  selectedChars += lowercaseChars;
+}
+if (uppercaseConfirm) {
+  selectedChars += uppercaseChars;
+}
+if (numericConfirm) {
+  selectedChars += numericChars;
+}
+if (specialCharactersConfirm) {
+  selectedChars += specialChars;
+}
+
+// Generate password based on selected criteria
+let password = '';
+for (let i = 0; i < passwordLength; i++) {
+  const randomIndex = Math.floor(Math.random() * selectedChars.length);
+  password += selectedChars[randomIndex];
+}
+
+return password;
 }
 
 
